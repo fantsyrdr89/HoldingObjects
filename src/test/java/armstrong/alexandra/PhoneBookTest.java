@@ -22,9 +22,13 @@ public class PhoneBookTest{
 
     @Test
     public void lookUpTest(){
-        String[] expected = {"Number"};
-        String[] actual = phoneBook.lookUp("Name");
-        assertArrayEquals(expected, actual);
+        try {
+            String[] expected = {"Number"};
+            String[] actual = phoneBook.lookUp("Name");
+            assertArrayEquals(expected, actual);
+        } catch (RecordNotPresent e) {
+            System.out.println("Record not present");
+        }
     }
 
     @Test
@@ -45,9 +49,13 @@ public class PhoneBookTest{
 
     @Test
     public void reverseLookUpTest(){
-        String[] number = {"Number"};
-        String expected = "Name";
-        String actual = phoneBook.reverseLookUp(number);
-        assertEquals(expected, actual);
+        try {
+            String[] number = {"Number"};
+            String expected = "Name";
+            String actual = phoneBook.reverseLookUp(number);
+            assertEquals(expected, actual);
+        } catch (RecordNotPresent e) {
+            System.out.println("Record not present");
+        }
     }
 }
